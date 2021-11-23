@@ -5,7 +5,7 @@ module test_class
 !
    type :: test
 !
-      class(derived), allocatable :: A
+      !class(derived), allocatable :: A
 !
    contains
       procedure, public :: say_hi

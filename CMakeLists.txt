@@ -40,6 +40,7 @@ set(sources
 	abstract_derived_class.F90
 	abstract_base_class.F90
     test_class.F90
+    test_derived_class.F90
 )
 
 
