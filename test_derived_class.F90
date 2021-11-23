@@ -1,6 +1,7 @@
 module test_derived_class
 !
    use abstract_derived_class, only: derived
+   use test_class, only: test
    implicit none
 !
    type, extends(test) :: test_derived
