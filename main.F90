@@ -1,9 +1,9 @@
 program main
 
-   use test_class, only: test
+   use test_derived_class, only: test_derived
    implicit none
 
-   class(test), allocatable :: T
+   class(test_derived), allocatable :: T
 
    allocate(T)
    call T%say_hi()
