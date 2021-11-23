@@ -1,6 +1,7 @@
 module abstract_derived_class
-   type, abstract :: derived
-      integer :: i
+   use abstract_base_class, only: base
+   implicit none
+   type, extends(base), abstract :: derived
    contains
       procedure(another_routine_derived), public, deferred :: another_routine
    end type

@@ -1,4 +1,5 @@
 module abstract_base_class
+   implicit none
    type, abstract :: base
       integer :: i
    contains
