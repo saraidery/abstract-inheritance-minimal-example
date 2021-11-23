@@ -1,9 +1,12 @@
 program main
 
-   use abstract_derived_class, only: derived
+   use test_class, only: test
    implicit none
 
-   class(derived), allocatable :: derived_instance
+   class(test), allocatable :: T
 
-   print*, 'HELLO WORLD'
+   allocate(T)
+   call T%say_hi()
+   deallocate(T)
+
 end program
