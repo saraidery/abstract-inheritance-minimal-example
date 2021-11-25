@@ -1,7 +1,6 @@
 !
 module class_D_class
 !
-   use parameters
    use global_out, only : output
    use class_B_class
 !

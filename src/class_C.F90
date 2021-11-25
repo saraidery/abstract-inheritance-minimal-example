@@ -1,8 +1,7 @@
 !
 module class_C_class
 !
-   use parameters
-!
+   use kinds
    use global_out,            only : output
    use class_B_class,         only: class_B
 !
@@ -10,7 +9,7 @@ module class_C_class
 !
    type, abstract :: class_C
 !
-      integer :: n_J
+      integer :: dim_
 !
       type(class_B), dimension(:), allocatable :: array_B ! IF this goes -> no error
 !
@@ -25,27 +24,27 @@ module class_C_class
 !
       subroutine set_abstract(this, L_Jpq)
 !
-         use parameters
+         use kinds
          import class_C
 !
          implicit none
 !
          class(class_C), intent(inout):: this
 !
-         real(dp), dimension(this%n_J), intent(in)   :: L_Jpq
+         real(dp), dimension(this%dim_), intent(in)   :: L_Jpq
 !
       end subroutine set_abstract
 !
       subroutine get_abstract(this, L_Jpq)
 !
-         use parameters
+         use kinds
          import class_C
 !
          implicit none
 !
          class(class_C), intent(inout):: this
 !
-         real(dp), dimension(this%n_J), intent(out)  :: L_Jpq
+         real(dp), dimension(this%dim_), intent(out)  :: L_Jpq
 !
       end subroutine get_abstract
 !

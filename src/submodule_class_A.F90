@@ -22,7 +22,7 @@ contains
 !
    module subroutine submodule_routine_2_class_A(this, A1, A2)
 !
-      use class_D_class, only : class_D ! Without this no error
+      use class_D_class, only : class_D
 !
       implicit none
 !
@@ -33,20 +33,24 @@ contains
 !
       real(dp), dimension(:,:,:), allocatable :: L
 !
-      type(class_D) :: batch_v ! Without this no error
+      type(class_D) :: D
 !
-      integer :: v_batch
+      integer :: i
 !
-      batch_v = class_D(this%c)
+      allocate(L(1,1,1))
 !
-      do v_batch = 1, batch_v%dim_
+      D = class_D(this%c)
 !
-         call batch_v%class_routine()
+      do i = 1, D%dim_
+!
+         call D%class_routine()
 !
          call A1%get(L)
          call A2%set(L)
 !
       enddo
+!
+      deallocate(L)
 !
    end subroutine submodule_routine_2_class_A
 !

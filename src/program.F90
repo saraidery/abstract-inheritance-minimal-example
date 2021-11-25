@@ -1,7 +1,6 @@
 !
-program eT_program
+program program_
 !
-   use parameters
    use global_out
 !
    implicit none
@@ -9,7 +8,7 @@ program eT_program
    output = file_('filename')
    call program_routine()
 !
-end program eT_program
+end program program_
 !
 !
 subroutine program_routine()

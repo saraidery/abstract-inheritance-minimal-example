@@ -45,7 +45,6 @@ set(sources
     src/file_class.F90
     src/global_out.F90
     src/kinds.F90
-    src/parameters.F90
 )
 
 

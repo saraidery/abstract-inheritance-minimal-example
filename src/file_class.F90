@@ -1,8 +1,6 @@
 !
 module file_class
 !
-   use kinds
-!
    type:: file_
 !
    contains

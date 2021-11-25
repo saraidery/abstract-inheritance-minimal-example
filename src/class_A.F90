@@ -1,7 +1,7 @@
 !
 module class_A_class
 !
-   use parameters
+   use kinds
    use global_out, only: output
    use class_C_class, only: class_C
 !
