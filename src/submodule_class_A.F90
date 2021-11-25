@@ -6,32 +6,31 @@ submodule (class_A_class) submodule_class_A
 contains
 !
 !
-   module subroutine submodule_routine_1_class_A(this, A1, A2)
+   module subroutine submodule_routine_1_class_A(this, C)
 !
       implicit none
 !
       class(class_A), intent(inout) :: this
 !
-      class(class_C), intent(inout) :: A1
-      class(class_C), intent(inout) :: A2
+      class(class_C), intent(inout) :: C
 !
-      call this%submodule_routine_2(A1, A2)
+      call this%submodule_routine_2(C)
 !
    end subroutine submodule_routine_1_class_A
 !
 !
-   module subroutine submodule_routine_2_class_A(this, A1, A2)
+   module subroutine submodule_routine_2_class_A(this, C)
 !
+      use, intrinsic :: iso_fortran_env, only: real64
       use class_D_class, only : class_D
 !
       implicit none
 !
       class(class_A), intent(inout) :: this
 !
-      class(class_C), intent(inout) :: A1
-      class(class_C), intent(inout) :: A2
+      class(class_C), intent(inout) :: C
 !
-      real(dp), dimension(:,:,:), allocatable :: L
+      real(real64), dimension(:,:,:), allocatable :: L
 !
       type(class_D) :: D
 !
@@ -45,8 +44,8 @@ contains
 !
          call D%class_routine()
 !
-         call A1%get(L)
-         call A2%set(L)
+         call C%get(L)
+         call C%set(L)
 !
       enddo
 !

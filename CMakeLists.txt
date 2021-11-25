@@ -20,15 +20,11 @@ endif()
 set(sources
     src/program.F90
     src/class_A.F90
-    src/class_B.F90
-    src/class_C.F90
-    src/class_D.F90
+    src/class_BCD.F90
     src/submodule_class_A.F90
     src/file_class.F90
     src/global_out.F90
-    src/kinds.F90
 )
-
 
 add_executable(test_ifort_issue.x ${sources})
 

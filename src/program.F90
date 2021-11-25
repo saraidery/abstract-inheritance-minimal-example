@@ -21,7 +21,7 @@ subroutine program_routine()
 !
    allocate(class_A :: A)
 !
-   call A%cleanup()
+   call A%routine_()
 !
 end subroutine program_routine
 !

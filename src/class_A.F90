@@ -1,7 +1,6 @@
 !
 module class_A_class
 !
-   use kinds
    use global_out, only: output
    use class_C_class, only: class_C
 !
@@ -16,7 +15,7 @@ module class_A_class
 !
    contains
 !
-     procedure :: cleanup  => cleanup_class_A
+     procedure :: routine_  => routine_class_A
      procedure :: submodule_routine_1 => submodule_routine_1_class_A
      procedure :: submodule_routine_2  => submodule_routine_2_class_A
 
@@ -25,13 +24,32 @@ module class_A_class
 !
    interface
 !
-     include "submodule_class_A_interface.F90"
+   module subroutine submodule_routine_1_class_A(this, C)
+!
+      implicit none
+!
+      class(class_A), intent(inout) :: this
+      class(class_C), intent(inout) :: C
+!
+   end subroutine submodule_routine_1_class_A
+!
+!
+   module subroutine submodule_routine_2_class_A(this, C)
+!
+      use class_D_class, only : class_D
+!
+      implicit none
+!
+      class(class_A), intent(inout) :: this
+      class(class_C), intent(inout) :: C
+!
+   end subroutine submodule_routine_2_class_A
 !
    end interface
 !
 contains
 !
-   subroutine cleanup_class_A(this)
+   subroutine routine_class_A(this)
 !
       implicit none
 !
@@ -39,7 +57,7 @@ contains
 !
       call output%printf()
 !
-   end subroutine cleanup_class_A
+   end subroutine routine_class_A
 !
 !
 end module class_A_class
