@@ -41,7 +41,7 @@ contains
 !
       do v_batch = 1, batch_v%dim_
 !
-         call batch_v%determine_limits()
+         call batch_v%class_routine()
 !
          call A1%get(L)
          call A2%set(L)
