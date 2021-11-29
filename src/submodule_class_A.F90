@@ -6,50 +6,47 @@ submodule (class_A_class) submodule_class_A
 contains
 !
 !
-   module subroutine submodule_routine_1_class_A(this, C)
+   module subroutine submodule_routine_1_class_A(this, A1, A2)
 !
       implicit none
 !
       class(class_A), intent(inout) :: this
 !
-      class(class_C), intent(inout) :: C
+      class(class_C), intent(inout) :: A1
+      class(class_C), intent(inout) :: A2
 !
-      call this%submodule_routine_2(C)
+      call this%submodule_routine_2(A1, A2)
 !
    end subroutine submodule_routine_1_class_A
 !
 !
-   module subroutine submodule_routine_2_class_A(this, C)
+   module subroutine submodule_routine_2_class_A(this, A1, A2)
 !
-      use, intrinsic :: iso_fortran_env, only: real64
-      use class_D_class, only : class_D
+      use class_D_class, only : class_D ! Without this no error
 !
       implicit none
 !
       class(class_A), intent(inout) :: this
 !
-      class(class_C), intent(inout) :: C
+      class(class_C), intent(inout) :: A1
+      class(class_C), intent(inout) :: A2
 !
-      real(real64), dimension(:,:,:), allocatable :: L
+      real(dp), dimension(:,:,:), allocatable :: L
 !
-      type(class_D) :: D
+      type(class_D) :: batch_v ! Without this no error
 !
-      integer :: i
+      integer :: v_batch
 !
-      allocate(L(1,1,1))
+      batch_v = class_D(this%c)
 !
-      D = class_D(this%c)
+      do v_batch = 1, batch_v%dim_
 !
-      do i = 1, D%dim_
+         call batch_v%class_routine()
 !
-         call D%class_routine()
-!
-         call C%get(L)
-         call C%set(L)
+         call A1%get(L)
+         call A2%set(L)
 !
       enddo
-!
-      deallocate(L)
 !
    end subroutine submodule_routine_2_class_A
 !

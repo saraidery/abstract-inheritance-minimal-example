@@ -1,6 +1,7 @@
 !
-program program_
+program eT_program
 !
+   use parameters
    use global_out
 !
    implicit none
@@ -8,7 +9,7 @@ program program_
    output = file_('filename')
    call program_routine()
 !
-end program program_
+end program eT_program
 !
 !
 subroutine program_routine()
@@ -21,7 +22,7 @@ subroutine program_routine()
 !
    allocate(class_A :: A)
 !
-   call A%routine_()
+   call A%cleanup()
 !
 end subroutine program_routine
 !
